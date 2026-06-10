@@ -1,73 +1,183 @@
-/* ── THEME ───────────────────────────────────── */
-const toggleBtn = document.getElementById('themeToggle');
-const iconSun   = document.getElementById('icon-sun');
-const iconMoon  = document.getElementById('icon-moon');
-const html      = document.documentElement;
+/* ==========================================================
+   script.js — Isabel Lucena Portfólio
+   Recursos JS:
+   1. Dark / Light Mode com persistência (localStorage)
+   2. Header com sombra ao rolar (scroll)
+   3. Menu mobile (hamburguer toggle)
+   4. Reveal on scroll (IntersectionObserver)
+   5. Filtro de projetos por categoria
+   6. Validação e envio do formulário de contato
+   ========================================================== */
 
-function setTheme(t) {
-  html.setAttribute('data-theme', t);
-  localStorage.setItem('theme', t);
-  if (t === 'dark') {
-    iconSun.style.display  = 'none';
-    iconMoon.style.display = '';
-  } else {
-    iconSun.style.display  = '';
-    iconMoon.style.display = 'none';
-  }
+/* ── 1. TEMA CLARO / ESCURO ──────────────────────────────── */
+const html        = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon   = document.getElementById('themeIcon');
+
+function applyTheme(theme) {
+  html.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  if (themeIcon) themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
 }
 
-setTheme(localStorage.getItem('theme') || 'light');
-toggleBtn.addEventListener('click', () =>
-  setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark')
-);
+// Aplica o tema salvo (ou o padrão claro)
+applyTheme(localStorage.getItem('theme') || 'light');
 
-/* ── CURSOR ──────────────────────────────────── */
-const cur  = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
-let mx = 0, my = 0, rx = 0, ry = 0;
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+}
 
-document.addEventListener('mousemove', e => {
-  mx = e.clientX;
-  my = e.clientY;
-  cur.style.transform = `translate(${mx - 4}px, ${my - 4}px)`;
-});
+/* ── 2. HEADER COM SOMBRA AO ROLAR ──────────────────────── */
+const siteHeader = document.getElementById('site-header');
 
-(function loop() {
-  rx += (mx - rx) * 0.1;
-  ry += (my - ry) * 0.1;
-  ring.style.transform = `translate(${rx - 16}px, ${ry - 16}px)`;
-  requestAnimationFrame(loop);
-})();
+function handleHeaderScroll() {
+  if (!siteHeader) return;
+  siteHeader.classList.toggle('scrolled', window.scrollY > 50);
+}
 
-/* ── NAV SCROLL ──────────────────────────────── */
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () =>
-  nav.classList.toggle('scrolled', scrollY > 50)
-);
+window.addEventListener('scroll', handleHeaderScroll, { passive: true });
 
-/* ── REVEAL ON SCROLL ────────────────────────── */
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 90);
-      obs.unobserve(e.target);
+/* ── 3. MENU MOBILE ─────────────────────────────────────── */
+const menuBtn   = document.getElementById('menuBtn');
+const mobileNav = document.getElementById('mobileNav');
+
+if (menuBtn && mobileNav) {
+  menuBtn.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    menuBtn.classList.toggle('open', isOpen);
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+    mobileNav.setAttribute('aria-hidden', String(!isOpen));
+  });
+
+  // Fecha ao clicar em um link do menu mobile
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      menuBtn.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      mobileNav.setAttribute('aria-hidden', 'true');
+    });
+  });
+}
+
+/* ── 4. REVEAL ON SCROLL ────────────────────────────────── */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      // Atraso escalonado para elementos dentro do mesmo viewport
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 80);
+      revealObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.12 });
 
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-/* ── CONTACT FORM ────────────────────────────── */
-function handleSubmit(e) {
-  e.preventDefault();
-  const n  = document.getElementById('form-name').value;
-  const em = document.getElementById('form-email').value;
-  const m  = document.getElementById('form-msg').value;
-  if (!n || !em || !m) return;
-  document.getElementById('form-feedback').style.display = 'block';
-  setTimeout(() => {
-    const s = encodeURIComponent(`Contato via portfólio - ${n}`);
-    const b = encodeURIComponent(`Nome: ${n}\nE-mail: ${em}\n\nMensagem:\n${m}`);
-    window.location.href = `mailto:isabel.lucena2007@gmail.com?subject=${s}&body=${b}`;
-  }, 800);
+/* ── 5. FILTRO DE PROJETOS ──────────────────────────────── */
+const filterBtns   = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card[data-category]');
+const emptyState   = document.getElementById('emptyState');
+
+if (filterBtns.length && projectCards.length) {
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Atualiza botão ativo
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      let visibleCount = 0;
+
+      projectCards.forEach(card => {
+        const cats = card.dataset.category || '';
+        const match = filter === 'all' || cats.includes(filter);
+        card.style.display = match ? '' : 'none';
+        if (match) visibleCount++;
+      });
+
+      // Mostra/esconde o estado vazio
+      if (emptyState) emptyState.hidden = visibleCount > 0;
+    });
+  });
+}
+
+/* ── 6. FORMULÁRIO DE CONTATO ────────────────────────────── */
+const contactForm  = document.getElementById('contactForm');
+const submitBtn    = document.getElementById('submitBtn');
+const submitLabel  = document.getElementById('submitLabel');
+const formSuccess  = document.getElementById('formSuccess');
+
+function showError(fieldId, errorId, message) {
+  const field = document.getElementById(fieldId);
+  const error = document.getElementById(errorId);
+  if (!field || !error) return;
+  field.classList.add('invalid');
+  error.textContent = message;
+}
+
+function clearErrors() {
+  document.querySelectorAll('.field-error').forEach(el => el.textContent = '');
+  document.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+}
+
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    clearErrors();
+
+    const name    = document.getElementById('form-name');
+    const email   = document.getElementById('form-email');
+    const msg     = document.getElementById('form-msg');
+    const subject = document.getElementById('form-subject');
+    let valid = true;
+
+    if (!name.value.trim()) {
+      showError('form-name', 'err-name', 'Por favor, informe seu nome.');
+      valid = false;
+    }
+    if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      showError('form-email', 'err-email', 'Informe um e-mail válido.');
+      valid = false;
+    }
+    if (!msg.value.trim()) {
+      showError('form-msg', 'err-msg', 'Escreva uma mensagem antes de enviar.');
+      valid = false;
+    }
+
+    if (!valid) return;
+
+    // Feedback visual
+    if (submitLabel) submitLabel.textContent = 'Enviando...';
+    if (submitBtn)   submitBtn.disabled = true;
+
+    setTimeout(() => {
+      if (formSuccess) formSuccess.hidden = false;
+
+      const sub  = encodeURIComponent(subject?.value || `Contato via portfólio — ${name.value}`);
+      const body = encodeURIComponent(
+        `Nome: ${name.value}\nE-mail: ${email.value}\n\nMensagem:\n${msg.value}`
+      );
+      window.location.href = `mailto:isabel.lucena2007@gmail.com?subject=${sub}&body=${body}`;
+
+      // Reset
+      contactForm.reset();
+      if (submitLabel) submitLabel.textContent = 'Enviar mensagem';
+      if (submitBtn)   submitBtn.disabled = false;
+    }, 900);
+  });
+
+  // Remove erro ao digitar
+  contactForm.querySelectorAll('input, textarea').forEach(field => {
+    field.addEventListener('input', () => {
+      field.classList.remove('invalid');
+      const errId = 'err-' + field.id.replace('form-', '');
+      const errEl = document.getElementById(errId);
+      if (errEl) errEl.textContent = '';
+    });
+  });
 }
