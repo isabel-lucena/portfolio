@@ -13,11 +13,14 @@ Navegação suave com scroll-behavior
 
 ## Estrutura de Páginas
 ├── index.html        Página inicial (breve apresentação)
+
 ├── sobremim.html     Página de detalhes sobre mim e habilidades
+
 ├── projetos.html     Página de projetos e certificados
+
 ├── style.css         Estilização da página
-├── script.js         Lógica de interatividade
-└── README.md
+
+└── script.js         Lógica de interatividade
 
 ## Tecnologias
 Tecnologia e seus usos:
