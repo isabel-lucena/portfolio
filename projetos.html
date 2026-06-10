@@ -1,160 +1,167 @@
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Isabel Lucena — Projetos</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projetos de Isabel Lucena — jogos, ferramentas e soluções desenvolvidas na CESAR School." />
+  <title>Isabel Lucena — Projetos</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-<div class="petal"></div>
-<div class="petal"></div>
-<div class="petal"></div>
-
-<!-- NAV -->
-<nav id="nav">
-  <a href="index.html" class="nav-logo">Isabel Lucena</a>
-  <ul class="nav-links">
-    <li><a href="sobremim.html">Sobre</a></li>
-    <li><a href="projetos.html">Projetos</a></li>
-    <li><a href="#certificados">Certificados</a></li>
-    <li><a href="index.html#contato">Contato</a></li>
-    <li>
-      <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
-        <svg id="icon-sun" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="4"/><path stroke-linecap="round" d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-        </svg>
-        <svg id="icon-moon" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" style="display:none">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-        </svg>
-      </button>
-    </li>
-  </ul>
-</nav>
-
-<!-- PROJETOS -->
-<section id="projetos" style="padding-top:9rem;">
-  <div class="section-header reveal">
-    <span class="section-num">— 02</span>
-    <h2 class="section-title">Projetos</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="projects-grid">
-
-    <div class="project-card reveal">
-      <div class="project-year">2026</div>
-      <div class="project-title">Encontre Jorginho</div>
-      <p class="project-desc">Jogo de exploração feito em Bitsy HD e Bitsy Color, rico em referências recifenses e nordestinas — nos cenários, objetos e nas falas dos personagens que guiam o jogador.</p>
-      <div class="project-tech">
-        <span class="tag highlight">Bitsy HD</span>
-        <span class="tag highlight">Bitsy Color</span>
-        <span class="tag">Game Design</span>
-        <span class="tag">Colaborativo</span>
-      </div>
-      <div class="project-links">
-        <a href="https://annabetelisboa.itch.io/encontre-jorginho" target="_blank" class="project-link">Jogar agora →</a>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Isabel Lucena</a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li><a href="sobremim.html" class="nav-link">Sobre</a></li>
+          <li><a href="projetos.html" class="nav-link active">Projetos</a></li>
+          <li><a href="index.html#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-btn" id="themeToggle" aria-label="Alternar tema" title="Alternar tema">
+          <span class="theme-icon" id="themeIcon">☀️</span>
+        </button>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile" aria-hidden="true">
+      <ul>
+        <li><a href="index.html" class="nav-link">Início</a></li>
+        <li><a href="sobremim.html" class="nav-link">Sobre Mim</a></li>
+        <li><a href="projetos.html" class="nav-link">Projetos</a></li>
+        <li><a href="index.html#contato" class="nav-link">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="project-card reveal">
-      <div class="project-year">2026</div>
-      <div class="project-title">Planner Hyrox</div>
-      <p class="project-desc">Planner de simulado para atletas de Hyrox. Cadastro de treinos e competições, acompanhamento de evolução, registro de lesões e sugestões de treino baseadas no histórico do usuário.</p>
-      <div class="project-tech">
-        <span class="tag highlight">Python</span>
-        <span class="tag">GitHub</span>
-        <span class="tag">Equipe · 6 devs</span>
+  <main>
+    <!-- ═══ PAGE HERO ══════════════════════════════════════════ -->
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container">
+        <p class="hero-eyebrow">O que estou construindo</p>
+        <h1 id="page-title">Meus <em>Projetos</em></h1>
       </div>
-      <div class="project-links">
-        <a href="https://github.com/GManzii/Projeto-hyrox-planner.git" target="_blank" class="project-link">Ver código →</a>
+    </section>
+
+    <!-- ═══ FILTER BAR (JS) ════════════════════════════════════ -->
+    <section class="projects-section reveal-section" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="filter-bar" role="group" aria-label="Filtrar projetos por categoria">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="jogo">Jogos</button>
+          <button class="filter-btn" data-filter="software">Software</button>
+          <button class="filter-btn" data-filter="hardware">Hardware</button>
+        </div>
+
+        <h2 id="projects-heading" class="visually-hidden">Lista de projetos</h2>
+
+        <div class="projects-grid" id="projectsGrid">
+
+          <article class="project-card reveal" data-category="jogo" aria-labelledby="proj1-title">
+            <header class="project-card-header">
+              <div class="project-meta">
+                <time datetime="2026">2026</time>
+                <span class="project-category">Jogo</span>
+              </div>
+              <h3 id="proj1-title" class="project-title">Encontre Jorginho</h3>
+            </header>
+            <div class="project-body">
+              <p>Jogo de exploração feito em Bitsy HD e Bitsy Color, rico em referências recifenses e nordestinas — nos cenários, objetos e nas falas dos personagens que guiam o jogador.</p>
+            </div>
+            <footer class="project-card-footer">
+              <ul class="tag-list" role="list" aria-label="Tecnologias">
+                <li class="tag accent">Bitsy HD</li>
+                <li class="tag accent">Bitsy Color</li>
+                <li class="tag">Game Design</li>
+                <li class="tag">Colaborativo</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://annabetelisboa.itch.io/encontre-jorginho" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Jogar Encontre Jorginho no itch.io">
+                  Jogar agora →
+                </a>
+              </div>
+            </footer>
+          </article>
+
+          <article class="project-card reveal" data-category="software" aria-labelledby="proj2-title">
+            <header class="project-card-header">
+              <div class="project-meta">
+                <time datetime="2026">2026</time>
+                <span class="project-category">Software</span>
+              </div>
+              <h3 id="proj2-title" class="project-title">Planner Hyrox</h3>
+            </header>
+            <div class="project-body">
+              <p>Planner de simulado para atletas de Hyrox. Cadastro de treinos e competições, acompanhamento de evolução, registro de lesões e sugestões de treino baseadas no histórico do usuário.</p>
+            </div>
+            <footer class="project-card-footer">
+              <ul class="tag-list" role="list" aria-label="Tecnologias">
+                <li class="tag accent">Python</li>
+                <li class="tag">GitHub</li>
+                <li class="tag">6 devs</li>
+              </ul>
+              <div class="project-links">
+                <a href="https://github.com/GManzii/Projeto-hyrox-planner.git" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Ver código do Planner Hyrox no GitHub">
+                  Ver código →
+                </a>
+              </div>
+            </footer>
+          </article>
+
+          <article class="project-card reveal" data-category="hardware jogo" aria-labelledby="proj3-title">
+            <header class="project-card-header">
+              <div class="project-meta">
+                <time datetime="2026">2026</time>
+                <span class="project-category">Hardware · Jogo</span>
+              </div>
+              <span class="project-badge">Em breve</span>
+              <h3 id="proj3-title" class="project-title">Arrudiando Recife</h3>
+            </header>
+            <div class="project-body">
+              <p>Jogo inclusivo e acessível desenvolvido com <strong>Arduino</strong>, focado em pessoas surdas. Usa microfone para detectar sons de fala e punir os jogadores — tornando o silêncio parte da mecânica. Celebra a cultura de Recife com ambientação e narrativa locais.</p>
+            </div>
+            <footer class="project-card-footer">
+              <ul class="tag-list" role="list" aria-label="Tecnologias">
+                <li class="tag accent">Arduino</li>
+                <li class="tag accent">Acessibilidade</li>
+                <li class="tag">Inclusivo</li>
+                <li class="tag">9 devs</li>
+              </ul>
+              <div class="project-links">
+                <span class="project-link muted" aria-disabled="true">Em breve</span>
+              </div>
+            </footer>
+          </article>
+
+        </div>
+
+        <!-- Empty state (shown by JS when filter has no results) -->
+        <p class="empty-state" id="emptyState" hidden role="status">
+          Nenhum projeto nessa categoria ainda. 👾
+        </p>
       </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-copy">© 2026 Isabel Lucena · Recife, PE</p>
+      <nav aria-label="Links do rodapé">
+        <ul class="footer-nav">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobremim.html">Sobre</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+        </ul>
+      </nav>
     </div>
+  </footer>
 
-    <div class="project-card reveal">
-      <div class="project-year">2026</div>
-      <div class="project-title">Arrudiando Recife</div>
-      <div class="project-badge">Em breve</div>
-      <p class="project-desc">Jogo inclusivo e acessível desenvolvido com <strong>Arduino</strong>, focado em pessoas surdas. Usa microfone para detectar sons de fala e punir os jogadores — tornando o silêncio parte da mecânica. Celebra a cultura de Recife com ambientação e narrativa locais.</p>
-      <div class="project-tech">
-        <span class="tag highlight">Arduino</span>
-        <span class="tag highlight">Acessibilidade</span>
-        <span class="tag">Inclusivo</span>
-        <span class="tag">Equipe · 9 devs</span>
-      </div>
-      <div class="project-links">
-        <a href="#" class="project-link" style="opacity:.35;pointer-events:none;">Em breve →</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- CERTIFICADOS -->
-<section id="certificados">
-  <div class="section-header reveal">
-    <span class="section-num">— 03</span>
-    <h2 class="section-title">Certificados</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="certs-list">
-    <a href="https://www.linkedin.com/in/isabel-ara%C3%BAjo-de-lucena-a12a613b9/details/certifications/" target="_blank" class="cert-item reveal">
-      <div class="cert-left">
-        <div class="cert-icon">🐍</div>
-        <div>
-          <div class="cert-name">Python</div>
-          <div class="cert-issuer">Cisco Networking Academy</div>
-        </div>
-      </div>
-      <span class="cert-arrow">→</span>
-    </a>
-    <a href="https://www.linkedin.com/in/isabel-ara%C3%BAjo-de-lucena-a12a613b9/details/certifications/" target="_blank" class="cert-item reveal">
-      <div class="cert-left">
-        <div class="cert-icon">⚡</div>
-        <div>
-          <div class="cert-name">JavaScript</div>
-          <div class="cert-issuer">Cisco Networking Academy</div>
-        </div>
-      </div>
-      <span class="cert-arrow">→</span>
-    </a>
-    <a href="https://www.linkedin.com/in/isabel-ara%C3%BAjo-de-lucena-a12a613b9/details/certifications/" target="_blank" class="cert-item reveal">
-      <div class="cert-left">
-        <div class="cert-icon">🖥️</div>
-        <div>
-          <div class="cert-name">Fundamentos Básicos de Hardware</div>
-          <div class="cert-issuer">Cisco Networking Academy</div>
-        </div>
-      </div>
-      <span class="cert-arrow">→</span>
-    </a>
-    <a href="https://www.linkedin.com/in/isabel-ara%C3%BAjo-de-lucena-a12a613b9/details/certifications/" target="_blank" class="cert-item reveal">
-      <div class="cert-left">
-        <div class="cert-icon">📋</div>
-        <div>
-          <div class="cert-name">Gestão Ágil com Scrum e Kanban</div>
-          <div class="cert-issuer">Orango / SENAC</div>
-        </div>
-      </div>
-      <span class="cert-arrow">→</span>
-    </a>
-  </div>
-  <div style="margin-top:2.5rem" class="reveal">
-    <a href="https://www.linkedin.com/in/isabel-ara%C3%BAjo-de-lucena-a12a613b9/details/certifications/" target="_blank" class="btn btn-ghost">Ver todos no LinkedIn →</a>
-  </div>
-</section>
-
-<footer>
-  <span>© 2026 Isabel Lucena</span>
-  <span>
-    <a href="mailto:isabel.lucena2007@gmail.com">isabel.lucena2007@gmail.com</a>
-    · Recife, PE
-  </span>
-</footer>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
