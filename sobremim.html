@@ -1,118 +1,231 @@
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Isabel Lucena — Sobre Mim</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="style.css"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sobre Isabel Lucena — habilidades, formação e trajetória na Ciência da Computação." />
+  <title>Isabel Lucena — Sobre Mim</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-<div class="petal"></div>
-<div class="petal"></div>
-<div class="petal"></div>
-
-<!-- NAV -->
-<nav id="nav">
-  <a href="index.html" class="nav-logo">Isabel Lucena</a>
-  <ul class="nav-links">
-    <li><a href="sobremim.html">Sobre</a></li>
-    <li><a href="projetos.html">Projetos</a></li>
-    <li><a href="projetos.html#certificados">Certificados</a></li>
-    <li><a href="index.html#contato">Contato</a></li>
-    <li>
-      <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
-        <svg id="icon-sun" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="4"/><path stroke-linecap="round" d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-        </svg>
-        <svg id="icon-moon" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" style="display:none">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-        </svg>
-      </button>
-    </li>
-  </ul>
-</nav>
-
-<!-- SOBRE -->
-<section id="sobre" style="padding-top:9rem;">
-  <div class="section-header reveal">
-    <span class="section-num">— 01</span>
-    <h2 class="section-title">Sobre mim</h2>
-    <div class="section-line"></div>
-  </div>
-  <div class="about-grid">
-    <div class="about-text reveal">
-      <p>Olá! Sou <strong>Isabel Lucena</strong>, estudante do primeiro período de Ciência da Computação na CESAR School, movida pela curiosidade e pela paixão por tecnologia.</p>
-      <p>Tenho grande interesse em <strong>Cibersegurança</strong> — um campo que despertou minha atenção pela sua importância na proteção de dados e sistemas em um mundo cada vez mais conectado.</p>
-      <p>Busco constantemente aprender sobre segurança da informação, redes, programação e boas práticas digitais, construindo uma base sólida para minha futura atuação profissional.</p>
-      <p>Tenho facilidade em <strong>trabalhar em equipe</strong> — acredito que projetos colaborativos crescem quando cada pessoa contribui com sua perspectiva única, e busco sempre ouvir ativamente, dividir responsabilidades com clareza e apoiar os colegas ao longo do processo.</p>
-      <p>Valorizo muito a <strong>produtividade com propósito</strong>: não se trata apenas de fazer mais, mas de fazer melhor — com foco, planejamento e entrega de qualidade. Uso ferramentas e métodos que me ajudam a manter o ritmo sem perder a atenção ao detalhe.</p>
-      <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.8rem;">
-        <a href="https://www.linkedin.com/in/isabel-araújo-de-lucena-a12a613b9" target="_blank" class="btn btn-primary" style="font-size:.72rem;padding:.6rem 1.3rem;">LinkedIn ↗</a>
-        <a href="https://github.com/settings/profile" target="_blank" class="btn btn-ghost" style="font-size:.72rem;padding:.6rem 1.3rem;">GitHub ↗</a>
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">Isabel Lucena</a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Início</a></li>
+          <li><a href="sobremim.html" class="nav-link active">Sobre</a></li>
+          <li><a href="projetos.html" class="nav-link">Projetos</a></li>
+          <li><a href="index.html#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="theme-btn" id="themeToggle" aria-label="Alternar tema" title="Alternar tema">
+          <span class="theme-icon" id="themeIcon">☀️</span>
+        </button>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
-    <div class="skills-block reveal">
-      <div class="skill-row">
-        <span class="skill-name">Linguagens</span>
-        <div class="skill-tags">
-          <span class="tag highlight">Python</span>
-          <span class="tag highlight">JavaScript</span>
-          <span class="tag highlight">C</span>
-          <span class="tag highlight">C++</span>
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Menu mobile" aria-hidden="true">
+      <ul>
+        <li><a href="index.html" class="nav-link">Início</a></li>
+        <li><a href="sobremim.html" class="nav-link">Sobre Mim</a></li>
+        <li><a href="projetos.html" class="nav-link">Projetos</a></li>
+        <li><a href="index.html#contato" class="nav-link">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ═══ PAGE HERO ══════════════════════════════════════════ -->
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="container">
+        <p class="hero-eyebrow">Conheça minha trajetória</p>
+        <h1 id="page-title">Sobre <em>Mim</em></h1>
+      </div>
+    </section>
+
+    <!-- ═══ BIO ════════════════════════════════════════════════ -->
+    <section class="bio reveal-section" aria-labelledby="bio-title">
+      <div class="container bio-grid">
+
+        <aside class="bio-sidebar reveal">
+          <figure class="bio-photo-wrap">
+            <img
+              src="https://raw.githubusercontent.com/SEU-USUARIO/SEU-REPOSITORIO/main/isabel.jpg"
+              alt="Isabel Lucena no BSides Recife"
+              class="bio-photo"
+              onerror="this.parentElement.style.display='none'"
+            />
+          </figure>
+
+          <div class="bio-quick">
+            <div class="bq-item">
+              <span class="bq-label">Formação</span>
+              <span class="bq-value">C.C. · CESAR School</span>
+            </div>
+            <div class="bq-item">
+              <span class="bq-label">Período</span>
+              <span class="bq-value">1º Período · 2026</span>
+            </div>
+            <div class="bq-item">
+              <span class="bq-label">Localização</span>
+              <span class="bq-value">Recife, PE</span>
+            </div>
+            <div class="bq-item">
+              <span class="bq-label">Foco</span>
+              <span class="bq-value">Cibersegurança</span>
+            </div>
+          </div>
+
+          <div class="bio-links">
+            <a href="https://www.linkedin.com/in/isabel-araújo-de-lucena-a12a613b9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">LinkedIn ↗</a>
+            <a href="https://github.com/SEU-USUARIO" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">GitHub ↗</a>
+          </div>
+        </aside>
+
+        <div class="bio-content">
+          <h2 id="bio-title" class="visually-hidden">Minha história</h2>
+
+          <article class="bio-block reveal">
+            <h3>Quem sou eu</h3>
+            <p>Olá! Sou <strong>Isabel Lucena</strong>, estudante do primeiro período de Ciência da Computação na CESAR School, movida pela curiosidade e pela paixão por tecnologia.</p>
+            <p>Tenho grande interesse em <strong>Cibersegurança</strong> — um campo que despertou minha atenção pela sua importância na proteção de dados e sistemas em um mundo cada vez mais conectado. Busco constantemente aprender sobre segurança da informação, redes e boas práticas digitais.</p>
+          </article>
+
+          <article class="bio-block reveal">
+            <h3>Como trabalho</h3>
+            <p>Tenho facilidade em <strong>trabalhar em equipe</strong> — acredito que projetos colaborativos crescem quando cada pessoa contribui com sua perspectiva única. Busco sempre ouvir ativamente, dividir responsabilidades com clareza e apoiar os colegas ao longo do processo.</p>
+            <p>Valorizo a <strong>produtividade com propósito</strong>: não se trata apenas de fazer mais, mas de fazer melhor — com foco, planejamento e entrega de qualidade. Uso ferramentas que me ajudam a manter o ritmo sem perder a atenção ao detalhe.</p>
+          </article>
+
+          <!-- Skills -->
+          <div class="skills-section reveal" aria-labelledby="skills-title">
+            <h3 id="skills-title">Habilidades</h3>
+            <div class="skills-grid">
+
+              <div class="skill-group">
+                <h4>Linguagens</h4>
+                <ul class="tag-list" role="list">
+                  <li class="tag accent">Python</li>
+                  <li class="tag accent">JavaScript</li>
+                  <li class="tag accent">C</li>
+                  <li class="tag accent">C++</li>
+                  <li class="tag">HTML5</li>
+                  <li class="tag">CSS3</li>
+                </ul>
+              </div>
+
+              <div class="skill-group">
+                <h4>Ferramentas</h4>
+                <ul class="tag-list" role="list">
+                  <li class="tag accent">Git / GitHub</li>
+                  <li class="tag accent">VS Code</li>
+                  <li class="tag">Bitsy HD</li>
+                  <li class="tag">Arduino IDE</li>
+                </ul>
+              </div>
+
+              <div class="skill-group">
+                <h4>Interesses</h4>
+                <ul class="tag-list" role="list">
+                  <li class="tag accent">Cibersegurança</li>
+                  <li class="tag">Redes</li>
+                  <li class="tag">Seg. da Informação</li>
+                </ul>
+              </div>
+
+              <div class="skill-group">
+                <h4>Soft Skills</h4>
+                <ul class="tag-list" role="list">
+                  <li class="tag accent">Trabalho em Equipe</li>
+                  <li class="tag accent">Produtividade</li>
+                  <li class="tag">Comunicação</li>
+                  <li class="tag">Proatividade</li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
-      <div class="skill-row">
-        <span class="skill-name">Ferramentas</span>
-        <div class="skill-tags">
-          <span class="tag highlight">Git / GitHub</span>
-          <span class="tag highlight">VS Code</span>
-          <span class="tag">Bitsy</span>
-          <span class="tag">Arduino IDE</span>
+    </section>
+
+    <!-- ═══ CERTIFICADOS ═══════════════════════════════════════ -->
+    <section class="certs reveal-section" aria-labelledby="certs-title">
+      <div class="container">
+        <header class="section-header">
+          <span class="section-tag">Formação complementar</span>
+          <h2 id="certs-title">Certificados</h2>
+        </header>
+
+        <ul class="certs-list" role="list">
+          <li>
+            <a href="https://www.linkedin.com/in/isabel-ara%C3%BAjo-de-lucena-a12a613b9/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert-card reveal" aria-label="Certificado Python — Cisco Networking Academy">
+              <span class="cert-icon" aria-hidden="true">🐍</span>
+              <div class="cert-info">
+                <strong>Python</strong>
+                <span>Cisco Networking Academy</span>
+              </div>
+              <span class="cert-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/isabel-ara%C3%BAjo-de-lucena-a12a613b9/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert-card reveal" aria-label="Certificado JavaScript — Cisco Networking Academy">
+              <span class="cert-icon" aria-hidden="true">⚡</span>
+              <div class="cert-info">
+                <strong>JavaScript</strong>
+                <span>Cisco Networking Academy</span>
+              </div>
+              <span class="cert-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/isabel-ara%C3%BAjo-de-lucena-a12a613b9/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert-card reveal" aria-label="Certificado Fundamentos Básicos de Hardware — Cisco Networking Academy">
+              <span class="cert-icon" aria-hidden="true">🖥️</span>
+              <div class="cert-info">
+                <strong>Fundamentos Básicos de Hardware</strong>
+                <span>Cisco Networking Academy</span>
+              </div>
+              <span class="cert-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/isabel-ara%C3%BAjo-de-lucena-a12a613b9/details/certifications/" target="_blank" rel="noopener noreferrer" class="cert-card reveal" aria-label="Certificado Gestão Ágil com Scrum e Kanban — Orango / SENAC">
+              <span class="cert-icon" aria-hidden="true">📋</span>
+              <div class="cert-info">
+                <strong>Gestão Ágil com Scrum e Kanban</strong>
+                <span>Orango / SENAC</span>
+              </div>
+              <span class="cert-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="certs-cta">
+          <a href="https://www.linkedin.com/in/isabel-ara%C3%BAjo-de-lucena-a12a613b9/details/certifications/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Ver todos no LinkedIn →</a>
         </div>
       </div>
-      <div class="skill-row">
-        <span class="skill-name">Interesses</span>
-        <div class="skill-tags">
-          <span class="tag highlight">Cibersegurança</span>
-          <span class="tag">Redes</span>
-          <span class="tag">Seg. da Info</span>
-        </div>
-      </div>
-      <div class="skill-row">
-        <span class="skill-name">Hardware</span>
-        <div class="skill-tags">
-          <span class="tag">Fundamentos</span>
-          <span class="tag">Cisco</span>
-          <span class="tag">Arduino</span>
-        </div>
-      </div>
-      <div class="skill-row">
-        <span class="skill-name">Soft Skills</span>
-        <div class="skill-tags">
-          <span class="tag highlight">Trabalho em Equipe</span>
-          <span class="tag highlight">Produtividade</span>
-          <span class="tag">Comunicação</span>
-          <span class="tag">Proatividade</span>
-        </div>
-      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-copy">© 2026 Isabel Lucena · Recife, PE</p>
+      <nav aria-label="Links do rodapé">
+        <ul class="footer-nav">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobremim.html">Sobre</a></li>
+          <li><a href="projetos.html">Projetos</a></li>
+        </ul>
+      </nav>
     </div>
-  </div>
-</section>
+  </footer>
 
-<footer>
-  <span>© 2026 Isabel Lucena</span>
-  <span>
-    <a href="mailto:isabel.lucena2007@gmail.com">isabel.lucena2007@gmail.com</a>
-    · Recife, PE
-  </span>
-</footer>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
