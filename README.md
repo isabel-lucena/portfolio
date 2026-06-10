@@ -30,4 +30,4 @@ JavaScript - Interatividade, tema, cursor
 Google Fonts(fontes extras utilizadas) - Cormorant Garamond e DM Sans
 
 
-Desenvolvido com 💜 por Isabel Lucena · Recife, PE · 2026
+Desenvolvido por Isabel Lucena · Recife, PE, Brasil · 2026
