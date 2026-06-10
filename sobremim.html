@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Isabel Lucena — Sobre Mim</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="petal"></div>
+<div class="petal"></div>
+<div class="petal"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Isabel Lucena</a>
+  <ul class="nav-links">
+    <li><a href="sobremim.html">Sobre</a></li>
+    <li><a href="projetos.html">Projetos</a></li>
+    <li><a href="projetos.html#certificados">Certificados</a></li>
+    <li><a href="index.html#contato">Contato</a></li>
+    <li>
+      <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+        <svg id="icon-sun" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4"/><path stroke-linecap="round" d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+        </svg>
+        <svg id="icon-moon" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" style="display:none">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+        </svg>
+      </button>
+    </li>
+  </ul>
+</nav>
+
+<!-- SOBRE -->
+<section id="sobre" style="padding-top:9rem;">
+  <div class="section-header reveal">
+    <span class="section-num">— 01</span>
+    <h2 class="section-title">Sobre mim</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>Olá! Sou <strong>Isabel Lucena</strong>, estudante do primeiro período de Ciência da Computação na CESAR School, movida pela curiosidade e pela paixão por tecnologia.</p>
+      <p>Tenho grande interesse em <strong>Cibersegurança</strong> — um campo que despertou minha atenção pela sua importância na proteção de dados e sistemas em um mundo cada vez mais conectado.</p>
+      <p>Busco constantemente aprender sobre segurança da informação, redes, programação e boas práticas digitais, construindo uma base sólida para minha futura atuação profissional.</p>
+      <p>Tenho facilidade em <strong>trabalhar em equipe</strong> — acredito que projetos colaborativos crescem quando cada pessoa contribui com sua perspectiva única, e busco sempre ouvir ativamente, dividir responsabilidades com clareza e apoiar os colegas ao longo do processo.</p>
+      <p>Valorizo muito a <strong>produtividade com propósito</strong>: não se trata apenas de fazer mais, mas de fazer melhor — com foco, planejamento e entrega de qualidade. Uso ferramentas e métodos que me ajudam a manter o ritmo sem perder a atenção ao detalhe.</p>
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.8rem;">
+        <a href="https://www.linkedin.com/in/isabel-araújo-de-lucena-a12a613b9" target="_blank" class="btn btn-primary" style="font-size:.72rem;padding:.6rem 1.3rem;">LinkedIn ↗</a>
+        <a href="https://github.com/settings/profile" target="_blank" class="btn btn-ghost" style="font-size:.72rem;padding:.6rem 1.3rem;">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="skills-block reveal">
+      <div class="skill-row">
+        <span class="skill-name">Linguagens</span>
+        <div class="skill-tags">
+          <span class="tag highlight">Python</span>
+          <span class="tag highlight">JavaScript</span>
+          <span class="tag highlight">C</span>
+          <span class="tag highlight">C++</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Ferramentas</span>
+        <div class="skill-tags">
+          <span class="tag highlight">Git / GitHub</span>
+          <span class="tag highlight">VS Code</span>
+          <span class="tag">Bitsy</span>
+          <span class="tag">Arduino IDE</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Interesses</span>
+        <div class="skill-tags">
+          <span class="tag highlight">Cibersegurança</span>
+          <span class="tag">Redes</span>
+          <span class="tag">Seg. da Info</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Hardware</span>
+        <div class="skill-tags">
+          <span class="tag">Fundamentos</span>
+          <span class="tag">Cisco</span>
+          <span class="tag">Arduino</span>
+        </div>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Soft Skills</span>
+        <div class="skill-tags">
+          <span class="tag highlight">Trabalho em Equipe</span>
+          <span class="tag highlight">Produtividade</span>
+          <span class="tag">Comunicação</span>
+          <span class="tag">Proatividade</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Isabel Lucena</span>
+  <span>
+    <a href="mailto:isabel.lucena2007@gmail.com">isabel.lucena2007@gmail.com</a>
+    · Recife, PE
+  </span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
